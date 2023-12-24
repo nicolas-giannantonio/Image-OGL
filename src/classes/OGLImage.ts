@@ -1,8 +1,17 @@
 import {Renderer, Program, Mesh, Camera, Transform, Texture, Plane, OGLRenderingContext} from "ogl";
-
 import {ICanvas} from "./Canvas.ts";
 
-class OGLImage {
+import IOGLImage from "../interfaces/IOGLImages.ts";
+
+
+/**
+ * WebGL Image
+ *
+ * @class OGLImage
+ * @implements {IOGLImage}
+ *
+ */
+class OGLImage implements IOGLImage {
     image: HTMLImageElement
     gl: OGLRenderingContext
     renderer: Renderer
@@ -11,8 +20,11 @@ class OGLImage {
     viewport: { width: number; height: number }
     geometry: Plane
     shaders: { vertex: string; fragment: string }
-    webglImage: Mesh
+    webglImage!: Mesh
     screen: { width: number; height: number }
+    uniforms: any
+    onUpdate: () => void
+
 
     bounds: {
         width: number;
@@ -26,18 +38,22 @@ class OGLImage {
 
     constructor(
         {
+            image,
             canvas,
             geometry,
-            image,
             shaders,
+            uniforms = {},
+            onUpdate = ():void => {}
         }: {
+            image: HTMLImageElement,
             canvas: ICanvas,
             geometry: Plane,
-            image: HTMLImageElement,
             shaders: {
                 vertex: string,
                 fragment: string
-            }
+            },
+            uniforms?: object,
+            onUpdate?: () => void
         }) {
 
         this.gl = canvas.gl;
@@ -46,12 +62,23 @@ class OGLImage {
         this.scene = canvas.scene;
         this.viewport = canvas.webglViewport;
         this.screen = canvas.screen;
+        this.uniforms = uniforms;
+        this.onUpdate = onUpdate;
 
 
         this.geometry = geometry;
 
         this.image = image;
         this.shaders = shaders;
+
+        this.bounds = {
+            width: 0,
+            height: 0,
+            left: 0,
+            right: 0,
+            top: 0,
+            bottom: 0,
+        }
 
         this.createMesh();
         this.createBounds();
@@ -87,6 +114,7 @@ class OGLImage {
                 uImageSizes: {value: [0, 0]},
                 uViewportSizes: {value: [this.viewport.width, this.viewport.height]},
                 uTime: {value: 0},
+                ...this.uniforms,
             },
             transparent: true,
         })
@@ -147,6 +175,9 @@ class OGLImage {
         this.updateScale()
         this.updateX()
         this.updateY(y)
+
+        // USER
+        this.onUpdate();
 
         // UNIFORM
         this.webglImage.program.uniforms.uTime.value += 0.01;

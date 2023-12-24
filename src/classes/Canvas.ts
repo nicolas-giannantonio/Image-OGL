@@ -1,17 +1,7 @@
 import {Camera, OGLRenderingContext, Renderer, Transform} from "ogl";
 
+import ICanvas from "../interfaces/ICanvas";
 
-interface ICanvas {
-    renderer: Renderer
-    gl: OGLRenderingContext
-    camera: Camera
-    scene: Transform
-    screen: { width: number; height: number }
-    webglViewport: { width: number; height: number }
-
-    resize(): void
-    update(): void
-}
 
 class Canvas implements ICanvas {
     renderer!: Renderer
@@ -32,13 +22,13 @@ class Canvas implements ICanvas {
         alpha = true,
         antialias = true,
         dpr = Math.min(window.devicePixelRatio, 2),
-                } = {}) {
+    } = {})
+    {
 
         this.container = container;
         this.alpha = alpha;
         this.antialias = antialias;
         this.dpr = dpr;
-
 
         this.createRenderer();
         this.createCamera();
