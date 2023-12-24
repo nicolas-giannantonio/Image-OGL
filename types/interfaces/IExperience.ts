@@ -1,6 +1,6 @@
-import Canvas from "../classes/Canvas.ts";
+import Canvas from "../classes/Canvas";
 import {Mesh} from "ogl";
-import OGLImage from "../classes/OGLImage.ts";
+import OGLImage from "../classes/OGLImage";
 
 
 

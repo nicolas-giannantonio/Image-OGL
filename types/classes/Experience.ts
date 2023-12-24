@@ -1,9 +1,9 @@
 import {Plane} from "ogl";
 
-import Canvas from "./Canvas.ts";
-import OGLImage from "./OGLImage.ts";
+import Canvas from "./Canvas";
+import OGLImage from "./OGLImage";
 
-import {IExperience, AddImageOptions, UserData} from "../interfaces/IExperience.ts";
+import {IExperience, AddImageOptions, UserData} from "../interfaces/IExperience";
 
 /**
  * WebGL Experience

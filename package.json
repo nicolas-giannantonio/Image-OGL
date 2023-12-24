@@ -1,16 +1,44 @@
 {
   "name": "oglimage",
-  "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
+
   "scripts": {
+    "compile": "tsc",
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
+
+  "main": "src/index.js",
+  "types": "types/index.d.ts",
+
+
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./src/index.js"
+    },
+    "./src/*": "./src/*"
+  },
+
+  "files": [
+    "src/**/*",
+    "types/**/*"
+  ],
+
+
+  "sideEffects": false,
+
+  "peerDependencies": {
+    "ogl": "^1.0.3"
+  },
+
   "devDependencies": {
-    "ogl": "^1.0.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -1,7 +1,7 @@
 import {Renderer, Program, Mesh, Camera, Transform, Texture, Plane, OGLRenderingContext} from "ogl";
-import {ICanvas} from "./Canvas.ts";
+import {ICanvas} from "./Canvas";
 
-import IOGLImage from "../interfaces/IOGLImages.ts";
+import IOGLImage from "../interfaces/IOGLImages";
 
 
 /**
