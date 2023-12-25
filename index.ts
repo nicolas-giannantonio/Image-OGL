@@ -1,6 +1,7 @@
 import {Camera, OGLRenderingContext, Renderer, Transform, Mesh, Plane} from "ogl";
 import Canvas from "./core/Canvas";
 import OGLImage from "./core/OGLImage";
+import Experience from "./core/Experience";
 
 
 /**
@@ -93,3 +94,4 @@ export interface IOGLImage {
 }
 
 
+export default Experience;
