@@ -1,7 +1,7 @@
 import {Renderer, Program, Mesh, Camera, Transform, Texture, Plane, OGLRenderingContext} from "ogl";
-import {ICanvas} from "./Canvas";
+import {ICanvas} from "../index";
 
-import IOGLImage from "../interfaces/IOGLImages";
+import {IOGLImage} from "../index";
 
 
 /**
@@ -11,7 +11,7 @@ import IOGLImage from "../interfaces/IOGLImages";
  * @implements {IOGLImage}
  *
  */
-class OGLImage implements IOGLImage {
+export default class OGLImage implements IOGLImage {
     image: HTMLImageElement
     gl: OGLRenderingContext
     renderer: Renderer
@@ -185,4 +185,3 @@ class OGLImage implements IOGLImage {
 
 }
 
-export default OGLImage;

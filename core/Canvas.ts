@@ -1,9 +1,8 @@
 import {Camera, OGLRenderingContext, Renderer, Transform} from "ogl";
 
-import ICanvas from "../interfaces/ICanvas";
+import {ICanvas} from "../index";
 
-
-class Canvas implements ICanvas {
+export default class Canvas implements ICanvas {
     renderer!: Renderer
     gl!: OGLRenderingContext
     camera!: Camera
@@ -12,9 +11,9 @@ class Canvas implements ICanvas {
     webglViewport!: { width: number; height: number }
 
     private container: HTMLElement
-    private alpha: boolean
-    private antialias: boolean
-    private dpr: number
+    readonly alpha: boolean
+    readonly antialias: boolean
+    readonly dpr: number
 
 
     constructor({
@@ -80,5 +79,3 @@ class Canvas implements ICanvas {
     }
 }
 
-export default Canvas;
-export type {ICanvas}

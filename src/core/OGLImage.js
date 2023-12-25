@@ -6,7 +6,7 @@ import { Program, Mesh, Texture } from "ogl";
  * @implements {IOGLImage}
  *
  */
-class OGLImage {
+export default class OGLImage {
     constructor({ image, canvas, geometry, shaders, uniforms = {}, onUpdate = () => { } }) {
         this.gl = canvas.gl;
         this.renderer = canvas.renderer;
@@ -95,4 +95,3 @@ class OGLImage {
         this.webglImage.program.uniforms.uTime.value += 0.01;
     }
 }
-export default OGLImage;

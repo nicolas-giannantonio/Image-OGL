@@ -1,10 +1,12 @@
-import Canvas from "../classes/Canvas";
-import {Mesh} from "ogl";
-import OGLImage from "../classes/OGLImage";
+import {Camera, OGLRenderingContext, Renderer, Transform, Mesh, Plane} from "ogl";
+import Canvas from "./core/Canvas";
+import OGLImage from "./core/OGLImage";
 
 
-
-interface IExperience {
+/**
+ * WebGL Experience
+ */
+export interface IExperience {
     canvas: Canvas
     geometry: Mesh[] | any
     userData: {
@@ -16,7 +18,6 @@ interface IExperience {
 
     addImage(image: HTMLImageElement | null, options: AddImageOptions): void;
 }
-
 
 /**
  * WebGL Image Options
@@ -33,13 +34,12 @@ interface IExperience {
  *     - uTime: {value: 0},
  * @property {function} onUpdate - Add some code to run on update.
  */
-interface AddImageOptions {
+export interface AddImageOptions {
     vertex?: string;
     fragment?: string;
     uniforms?: (this: WebGLRenderingContext) => object;
     onUpdate?: (this: WebGLRenderingContext) => void;
 }
-
 
 /**
  * User Data
@@ -49,12 +49,47 @@ interface AddImageOptions {
  * @property {object} scroll - Object for tracking scroll position.
  * @property {number} scroll.current - The current scroll position, initialized to 0.
  */
-interface UserData {
+export interface UserData {
     webglImages: OGLImage[];
     scroll: {
         current: number;
     };
 }
 
+/**
+ * WebGL Canvas
+ */
+export interface ICanvas {
+    renderer: Renderer
+    gl: OGLRenderingContext
+    camera: Camera
+    scene: Transform
+    screen: { width: number; height: number }
+    webglViewport: { width: number; height: number }
 
-export type {IExperience, AddImageOptions, UserData}
+    resize(): void
+    update(): void
+}
+
+/**
+ * WebGL Image
+ *
+ * @interface IOGLImage
+ *
+ */
+export interface IOGLImage {
+    image: HTMLImageElement
+    gl: OGLRenderingContext
+    renderer: Renderer
+    camera: Camera
+    scene: Transform
+    viewport: { width: number; height: number }
+    geometry: Plane
+    shaders: { vertex: string; fragment: string }
+    webglImage: Mesh
+    screen: { width: number; height: number }
+    uniforms: any
+    onUpdate: () => void
+}
+
+

@@ -3,7 +3,7 @@ import {Plane} from "ogl";
 import Canvas from "./Canvas";
 import OGLImage from "./OGLImage";
 
-import {IExperience, AddImageOptions, UserData} from "../interfaces/IExperience";
+import {IExperience, AddImageOptions, UserData} from "../index";
 
 /**
  * WebGL Experience
@@ -20,7 +20,7 @@ import {IExperience, AddImageOptions, UserData} from "../interfaces/IExperience"
  * @param {boolean|number} [options.scroll.current=false] - Default window scroll. Set your own value to override.
  */
 
-class Experience implements IExperience {
+export default class Experience implements IExperience {
     canvas: Canvas
     geometry: { plane: Plane }
     userData: UserData
@@ -192,5 +192,3 @@ class Experience implements IExperience {
 }
 
 
-export default Experience
-export type {IExperience};

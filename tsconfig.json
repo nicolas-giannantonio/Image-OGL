@@ -2,8 +2,14 @@
   "compilerOptions": {
     "target": "es6",
     "module": "ESNext",
+
+
+    "outDir": "./src/",
+
     "declaration": true,
-    "outDir": "./src",
+
+    "declarationDir": "./src/types",
+
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
@@ -15,6 +21,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["types/**/*"],
-  "exclude": ["node_modules", "src"]
+
+  "include": ["core/**/*"],
+  "exclude": ["node_modules", "dist"]
 }

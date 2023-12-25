@@ -1,5 +1,5 @@
 import { Camera, Renderer, Transform } from "ogl";
-class Canvas {
+export default class Canvas {
     constructor({ container = document.body, alpha = true, antialias = true, dpr = Math.min(window.devicePixelRatio, 2), } = {}) {
         this.container = container;
         this.alpha = alpha;
@@ -44,4 +44,3 @@ class Canvas {
         this.renderer.render({ scene: this.scene, camera: this.camera });
     }
 }
-export default Canvas;

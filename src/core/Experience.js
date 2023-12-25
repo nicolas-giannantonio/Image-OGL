@@ -15,7 +15,7 @@ import OGLImage from "./OGLImage";
  * @param {object} [options.scroll] - Object for tracking scroll position.
  * @param {boolean|number} [options.scroll.current=false] - Default window scroll. Set your own value to override.
  */
-class Experience {
+export default class Experience {
     constructor({ container = document.body, alpha = true, antialias = true, dpr = Math.min(window.devicePixelRatio, 2), scroll = { current: false }, } = {}) {
         this.scroll = scroll;
         this.container = container;
@@ -143,4 +143,3 @@ class Experience {
         this.userData.webglImages.push(webglImage);
     }
 }
-export default Experience;

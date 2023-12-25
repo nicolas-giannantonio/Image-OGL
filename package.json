@@ -2,38 +2,30 @@
   "name": "oglimage",
   "version": "0.0.2",
   "type": "module",
-
   "scripts": {
     "compile": "tsc",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
-
   "main": "src/index.js",
-  "types": "types/index.d.ts",
-
-
+  "module": "src/index.js",
+  "types": "types/index.ts",
   "exports": {
     ".": {
-      "types": "./types/index.d.ts",
-      "default": "./src/index.js"
+      "import": "./src/index.js",
+      "require": "./src/index.js"
     },
-    "./src/*": "./src/*"
+    "./types": "./types/index.ts"
   },
-
   "files": [
     "src/**/*",
     "types/**/*"
   ],
-
-
   "sideEffects": false,
-
   "peerDependencies": {
     "ogl": "^1.0.3"
   },
-
   "devDependencies": {
     "typescript": "^5.0.2",
     "vite": "^4.4.0"
