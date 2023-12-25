@@ -10,13 +10,13 @@
   },
   "main": "src/index.js",
   "module": "src/index.js",
-  "types": "src/types/index.d.ts",
+  "types": "types/index.d.ts",
   "exports": {
     ".": {
       "import": "./src/index.js",
       "require": "./src/index.js"
     },
-    "./types": "./src/types/index.d.ts"
+    "./types": "./types/index.d.ts"
   },
   "files": [
     "src/**/*",
