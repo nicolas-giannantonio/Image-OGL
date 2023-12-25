@@ -9,7 +9,6 @@ lerna-debug.log*
 
 node_modules
 dist
-core
 dist-ssr
 *.local
 
@@ -26,4 +25,5 @@ dist-ssr
 package-lock.json
 tsconfig.json
 vite.config.ts
+index.ts
 .gitignore
