@@ -48,7 +48,7 @@ experience.addImage(myImage)
 | `options` | Object                                | Configuration options for the transformation.                                                    |
 |           | `vertex` (optional)                   | Custom vertex shader.                                                                             |
 |           | `fragment` (optional)                 | Custom fragment shader.                                                                           |
-|           | `uniforms` (optional)                 | A function that returns custom uniforms.                                                          |
+|           | `uniforms` (optional)                 | Objects contains additional uniforms                                                        |
 
 
 ### Example
