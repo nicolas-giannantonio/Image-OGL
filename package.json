@@ -1,22 +1,22 @@
 {
   "name": "oglimage",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "scripts": {
     "compile": "tsc",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && tsc --emitDeclarationOnly",
     "preview": "vite preview"
   },
   "main": "src/index.js",
   "module": "src/index.js",
-  "types": "types/index.ts",
+  "types": "src/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./src/index.js",
       "require": "./src/index.js"
     },
-    "./types": "./types/index.ts"
+    "./types": "./src/types/index.d.ts"
   },
   "files": [
     "src/**/*",
